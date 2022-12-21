@@ -9,6 +9,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import SplashScreen from './src/screens/SplashScreen';
 import 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 
@@ -51,18 +52,20 @@ function App() {
   }; */
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={'Splash_Screen'}
-        screenOptions={{
-          header: () => null,
-        }}>
-        <Stack.Screen name="Register_Screen" component={RegisterScreen} />
-        <Stack.Screen name="Login_Screen" component={LoginScreen} />
-        <Stack.Screen name="Splash_Screen" component={SplashScreen} />
-        <Stack.Screen name="Home_Screen" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName={'Splash_Screen'}
+          screenOptions={{
+            header: () => null,
+          }}>
+          <Stack.Screen name="Register_Screen" component={RegisterScreen} />
+          <Stack.Screen name="Login_Screen" component={LoginScreen} />
+          <Stack.Screen name="Splash_Screen" component={SplashScreen} />
+          <Stack.Screen name="Home_Screen" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
